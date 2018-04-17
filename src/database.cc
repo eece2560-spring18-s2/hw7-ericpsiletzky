@@ -196,10 +196,71 @@ void Database::LoadData(const std::string &data_folder_path,
 
 void Database::BuildMemberGraph() {
   // Fill in your code here
+   for (Group *g: groups){
+     for (Member *m1 : g->members){
+      for (Member *m2 : g->members){
+       
+       if (m1 == m2){
+         
+       }
+       
+       else {
+      
+       MemberConnection *mc1 = new MemberConnection();
+       MemberConnection *mc2 = new MemberConnection();
+       mc1->group = g;
+       mc2->group = g;
+       mc1->dst = m2;
+       mc2->dst = m1;
+       
+       std::pair<uint64_t,MemberConnection> p1;
+       std::pair<uint64_t,MemberConnection> p2;
+       p1.first = m2->member_id;
+       p2.first = m1->member_id;
+       p1.second = *mc1;
+       p2.second = *mc2;
+       
+       m1->connecting_members.insert(p1);
+       m2->connecting_members.insert(p2);
+      }
+     }
+    
+    }
+   }
 }
 
 double Database::BestGroupsToJoin(Member *root) {
   // Fill in your code here
+  /*
+  std::vector<Member*> m;
+  Group *g;
+  double smallest;
+  double total;
+  Member *smallestM;
+  m.insert(root);
+  
+  for (int x = 0; x < 100; x++){
+    for (auto it1 = m.begin(); it1 != m.end(); it1++){
+      Member *current = *it1;
+      
+      for (auto it2 = current->groups.begin(); it2 != current->groups.end(); it2++){
+        g = *it2;
+        
+        for (auto it3 = g->members.begin(); it3 != g->members.end();it3++){
+          if (g->size()+1 < smallest && it3.color == 0){
+            Member *m2 = *it3;
+            smallest = g->size()+1;
+            total = total + smallest;
+            smallestM = m2;
+            smallestM->parent = current;
+            m.insert(m2);
+          }
+        }
+      }
+    }
+  }
+  */ 
+  return 0;
 }
 
 }

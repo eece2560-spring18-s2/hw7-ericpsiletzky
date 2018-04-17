@@ -45,6 +45,7 @@ class Member {
   void PathToMemberIDDFS(uint64_t dst_member_id);
   void PrintPath(Member *dst);
   void DumpConnections();
+  void DFS (Member* node, int depth, uint64_t dst_member_id);
 
   // For graph algorithms
   int color = COLOR_WHITE;
