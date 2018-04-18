@@ -17,5 +17,3 @@ first anyway. However changing the starting depth could alter this and give it a
 The final problem dealt with implementing primm's algorithm, and creating a minimum spanning tree. This was meant to be completed by finding the 
 smallest weighted linked from the member which have been sorted, and then moving along that link. From there new links are made available, and the smallest
 from all of the available links is then selected for a new node. This will find the smllest path to and from the original member for all other members.
-I attmpted to go through a list of the sorted members, and find the smallest link and then add the new member to the sorted list, but could not manage
-the syntax. 
